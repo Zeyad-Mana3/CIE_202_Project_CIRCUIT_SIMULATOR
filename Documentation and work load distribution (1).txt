@@ -1,0 +1,38 @@
+Documentation and work load:
+
+1- Zeyad Manaa:
+	*	Action Classes					(cooperation with Waleed and Rana)
+			- Resistor
+			- Bulb
+			- Ground
+			- Battery
+	*	UI (cooperation with Rana)
+			- Menu drawing functions		(with Rana)
+			- drawing function for each component 	(with Rana)
+	*	Action Load.
+	* 	Action Save.
+	* 	Action Label.
+	*	Clean-Up before Exit.
+
+
+2- Rana Elsemary: 
+	*	Action Classes 					(cooperation with Zeyad and Waleed)
+			- Select/Unselect 
+                        - Components Classes
+                        - Connection
+                        - Cction Add Component
+                        - Action Selesct/ Unselect 
+                        - UI drawing dunctions 			(with Zeyad)
+                        - Implement the needed functions and members in the Application Manager and Component and 
+			  connection classes			(with Zeyad)
+
+
+3- Waleed Elbalshy:
+	* 	Action Classes 					(with Zeyad)
+			- Add Fuse.
+			- Add Switch.
+			- Add Buzzer.
+	== For future purposes ==
+	* 	Action Copy.
+	* 	Action Cut.
+	* 	Action Paste.	
