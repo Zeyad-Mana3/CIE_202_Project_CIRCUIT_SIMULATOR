@@ -5,12 +5,12 @@
 #include "..\Components\Component.h"
 
 
-class ActionAddConnection : public Action, Component
+class ActionAddConnection : public Action
 {
 private:
 		//Parameters for line length to be occupied by the connection
 	int Cx1, Cy1, Cx2, Cy2;	//Center point of the conmponent 
-		int x1, y1, x2, y2;	
+	int x1, y1, x2, y2;	
 		
 	public:
 		ActionAddConnection(ApplicationManager* pApp);

@@ -4,6 +4,7 @@
 #include"..\UI\UI.h"
 #include "..\Components\Component.h"
 
+
 ActionAddConnection::ActionAddConnection(ApplicationManager* pApp) :Action(pApp)
 {
 
@@ -22,6 +23,21 @@ void ActionAddConnection::Execute()
 
 	//Get a Pointer to the user Interfaces
 	UI* pUI = pManager->GetUI();
+	// ======================================================
+	// Edited by zeyad
+	// ======================================================
+
+	if (pManager->getCompCount() < 2)
+	{
+		pUI->PrintMsg("You have to add two or more components");
+		pUI->GetUserAction();
+		return;
+	}
+
+	pUI->PrintMsg("Select the first component to add connection");
+	// ======================================================
+	// Edited by zeyad
+	// ======================================================
 
 	//choose the first comp
 	while (pManager->GetComponentByCordinates(Cx1, Cy1) == NULL)
@@ -38,7 +54,7 @@ void ActionAddConnection::Execute()
 	pUI->PrintMsg("Select the second component to add connection");
 	pUI->GetPointClicked(Cx2, Cy2);
 	// error massage when the user dosen't choose new comp
-	while (pManager->GetComponentByCordinates(Cx2, Cy2) == pManager->GetComponentByCordinates(Cx1, Cy1))
+	while (pManager->GetComponentByCordinates(Cx1, Cy1) == pManager->GetComponentByCordinates(Cx2, Cy2))
 	{
 		pUI->PrintMsg("you didn't choose another comp, please Select different one");
 
@@ -48,8 +64,15 @@ void ActionAddConnection::Execute()
 		
 			pUI->GetPointClicked(Cx2, Cy2);
 			
-			
-		}
+			pUI->PrintMsg("Select the first component");
+
+			pUI->GetPointClicked(Cx1, Cy1);	
+			if (Cy1 <= pUI->getCompHeight()) 
+			{
+				pUI->PrintMsg("Select the first component");
+			}
+
+			}
 
 	}
 	Component* comp2 = pManager->GetComponentByCordinates(Cx2, Cy2);

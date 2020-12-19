@@ -18,8 +18,8 @@ enum ActionType
 	ADD_GROUND,			//ADD GROUND
 	ADD_CONNECTION,		//Add Wire Connection
 
-	ADD_Label,			//Add Label to a Component, a Connection
-	EDIT_Label,			//Edit Label of a Component, a Connection
+	ADD_LABEL,			//Add Label to a Component, a Connection
+	EDIT_LABEL,			//Edit Label of a Component, a Connection
 
 	FLIP_SWITCH,		//Change Switch status in Simulation Mode
 
@@ -37,7 +37,6 @@ enum ActionType
 	SIM_MODE,	//Switch to Simulatiom mode
 
 	EXIT,		//Exit the application
-
 	STATUS_BAR,		//A click on the status bar
 	DSN_TOOL,	//A click on an empty place in the design tool bar
 

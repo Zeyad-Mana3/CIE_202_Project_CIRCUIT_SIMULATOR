@@ -35,6 +35,7 @@ class UI
 
 	enum DsgnMenuItem //The items of the design menu (you should add more items)
 	{
+
 		//Note: Items are ordered here as they appear in the menu
 		//If you want to change the menu items order, just change the order here
 		ITM_RES,		//ADD NEW RES ITEM TO MENU
@@ -45,9 +46,9 @@ class UI
 		ITM_BUZZER,		//ADDING NEW BUZZER ITEM TO MENU
 		ITM_GROUND,		//ADDING NEW GROUND ITEM TO MENU
 		ITM_CONNECTION, // Adding connection line
+		ITM_EDIT,		// eidt
 		ITM_EXIT,		//Exit item
 		
-	
 		ITM_DSN_CNT		//no. of design menu items ==> This should be the last line in this enum
 	};
 

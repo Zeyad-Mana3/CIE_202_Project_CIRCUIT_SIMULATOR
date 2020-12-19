@@ -66,16 +66,19 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new ActionAddFuse(this);
 			break;
 		case ADD_BUZZER:
-		//	pAct = new ActionAddBuzzer(this);
+			pAct = new ActionAddBuzzer(this);
 			break;
 		case ADD_GROUND:
-			//pAct = new ActionAddGround(this);
+			pAct = new ActionAddGround(this);
 			break;
 		case ADD_SWITCH:
-			//pAct = new ActionAddSwitsh(this);
+			pAct = new ActionAddSwitch(this);
 			break;
 		case ADD_CONNECTION:
-			//pAct = new ActionAddConnection(this);
+			pAct = new ActionAddConnection(this);
+			break;
+		case EDIT_LABEL:
+			pAct = new ActionEditLabel(this);
 			break;
 
 
@@ -87,9 +90,7 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new ActionLoad(this);
 			cout << "load";
 			break;
-		case EDIT_Label:
-			pAct = new ActionEditLabel(this);
-			break;
+		
 
 		case EXIT:
 			pUI->ClearDrawingArea();
