@@ -187,6 +187,7 @@
     <ClCompile Include="ActionSave.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+    <ClCompile Include="ActionDelete.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Action.h">
@@ -309,6 +310,7 @@
     <ClInclude Include="ActionSave.h">
       <Filter>Actions</Filter>
     </ClInclude>
+    <ClInclude Include="ActionDelete.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMUgraphicsLib\Manual.txt">

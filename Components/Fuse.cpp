@@ -20,3 +20,8 @@ void Fuse::Operate()
 {
 
 }
+
+CompType Fuse::getCompType()
+{
+	return FUSE;
+}

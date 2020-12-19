@@ -23,3 +23,8 @@ void Bulb::Operate()
 {
 
 }
+
+CompType Bulb::getCompType()
+{
+	return BULB;
+}

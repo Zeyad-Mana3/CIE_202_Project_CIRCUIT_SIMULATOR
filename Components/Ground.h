@@ -8,5 +8,7 @@ public:
 	Ground::Ground(GraphicsInfo* r_GfxInfo, double res, double volt);
 	virtual void Draw(UI*);	//Draws the Ground
 	virtual void Operate();
+	CompType getCompType();
+
 };
 

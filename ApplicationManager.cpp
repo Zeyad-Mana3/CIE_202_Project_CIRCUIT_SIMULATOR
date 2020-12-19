@@ -166,6 +166,29 @@ void ApplicationManager::CalculateVoltages(double current) {
 	// TODO
 }
 
+void ApplicationManager::DeleteCompS()
+{
+	for (int i = 0; i < C_S; i++)
+	{
+		for (int j = 0; j < CompCount; j++)
+		{
+			if (CompS[i] == CompList[j])
+			{
+				for (int k = 0; k < CompCount; k++) 
+					{
+					if (CompList[k]->getCompType() == CON) 
+								pUI->DeleteConn(*(CompList[j]->m_pGfxInfo));
+					}
+				pUI->DeleteComp(*(CompList[j]->m_pGfxInfo));
+				CompList[j] = NULL;
+				break;
+			}
+
+		}
+	}
+
+}
+
 ////////////////////////////////////////////////////////////////////
 ApplicationManager::~ApplicationManager()
 {

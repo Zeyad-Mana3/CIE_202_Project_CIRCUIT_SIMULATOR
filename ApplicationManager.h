@@ -21,7 +21,9 @@ private:
 	int ConnCount;		//Actual number of Connections
 
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
+	Component* CompS[MaxCompCount];
 	Connection* ConnList[MaxConnCount];	//List of all Connections (Array of pointers)
+	int C_S = 0; 
 
 	UI* pUI; //pointer to the UI
 
@@ -57,6 +59,7 @@ public:
 	void ToSimulation(); // Switches to simulation mode
 	double CalculateCurrent();
 	void CalculateVoltages(double current);
+	void DeleteCompS();
 
 
 	//destructor

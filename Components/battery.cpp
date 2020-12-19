@@ -22,3 +22,8 @@ void battery::Operate()
 {
 
 }
+
+CompType battery::getCompType()
+{
+	return BATTERY;
+}

@@ -47,6 +47,7 @@ class UI
 		ITM_GROUND,		//ADDING NEW GROUND ITEM TO MENU
 		ITM_CONNECTION, // Adding connection line
 		ITM_EDIT,		// eidt
+		ITM_DEL,		//DELETE
 		ITM_EXIT,		//Exit item
 		
 		ITM_DSN_CNT		//no. of design menu items ==> This should be the last line in this enum
@@ -133,6 +134,11 @@ public:
 	void DrawConnection(const GraphicsInfo &r_GfxInfo, bool selected = false) const;
 	
 	void PrintMsg(string msg) const;	//Print a message on Status bar
+
+	void DeleteComp(const GraphicsInfo& r_GfxInfo) const;
+
+	void DeleteConn(const GraphicsInfo& r_GfxInfo);
+
 
 	~UI();
 };

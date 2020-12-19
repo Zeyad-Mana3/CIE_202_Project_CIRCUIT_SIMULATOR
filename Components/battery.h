@@ -8,4 +8,5 @@ public:
 	battery::battery(GraphicsInfo* r_GfxInfo, double res, double volt);
 	virtual void Draw(UI*);	//Draws the battery
 	virtual void Operate();
+	CompType getCompType();
 };

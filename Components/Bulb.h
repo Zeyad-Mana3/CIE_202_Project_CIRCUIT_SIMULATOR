@@ -8,5 +8,7 @@ public:
 	Bulb::Bulb(GraphicsInfo* r_GfxInfo, double res, double volt);
 	virtual void Draw(UI*);	//Draws the Bulb
 	virtual void Operate();
+	CompType getCompType();
+
 };
 

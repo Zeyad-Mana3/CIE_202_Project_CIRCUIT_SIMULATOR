@@ -22,3 +22,8 @@ void Switch::Operate()
 {
 
 }
+
+CompType Switch::getCompType()
+{
+	return SWITCH;
+}

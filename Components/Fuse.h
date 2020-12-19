@@ -8,5 +8,7 @@ public:
 	Fuse::Fuse(GraphicsInfo* r_GfxInfo, double res, double volt);
 	virtual void Draw(UI*);	//Draws the Fuse
 	virtual void Operate();
+	CompType getCompType();
+
 };
 
