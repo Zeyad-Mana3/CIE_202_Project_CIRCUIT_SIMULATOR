@@ -17,16 +17,17 @@ class ApplicationManager
 
 private:
 	bool IsSimulation; // true when in simulation mode
+	
+	UI* pUI; //pointer to the UI
+
+
+public:	
 	int CompCount;		//Actual number of Components
 	int ConnCount;		//Actual number of Connections
 
 	Component* CompList[MaxCompCount];	//List of all Components (Array of pointers)
 	Connection* ConnList[MaxConnCount];	//List of all Connections (Array of pointers)
 
-	UI* pUI; //pointer to the UI
-
-
-public:	
 	ApplicationManager(); //constructor
 
 	//Reads the required action from the user and returns the corresponding action type
@@ -61,6 +62,9 @@ public:
 
 	//destructor
 	~ApplicationManager();
+	void switchON();
 };
 
 #endif
+
+

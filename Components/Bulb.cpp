@@ -11,6 +11,16 @@ Bulb::Bulb(GraphicsInfo* r_GfxInfo, double res, double volt) : Component(r_GfxIn
 	resistance = res;
 	sourceVoltage = volt;
 }
+int Bulb::GetOutStatus() {
+	if (HIGH)
+	return 1;
+	if (LOW)
+		return 0;
+}
+int Bulb::GetInputStatus()
+{
+	return -1;
+}
 
 void Bulb::Draw(UI* pUI)
 {
@@ -18,7 +28,14 @@ void Bulb::Draw(UI* pUI)
 	pUI->DrawBulb(*m_pGfxInfo, Selected); //update to draw Bulb
 
 }
-
+CompType Bulb::getCompType()
+{
+	return BULB;
+}
+double Bulb::getSourceVoltage(TerminalNum Term)
+{
+	return 0;
+}
 void Bulb::Operate()
 {
 

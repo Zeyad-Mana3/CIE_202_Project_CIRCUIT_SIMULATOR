@@ -7,11 +7,14 @@
 #include "ActionAddBuzzer.h"
 #include "ActionAddGround.h"
 #include "ActionAddSwitch.h"
+#include "ActionDisSelection.h"
 #include "Components/Component.h"
 #include"ActionLoad.h"
 #include "ActionEditLabel.h"
 #include "ActionSave.h"
+#include "ActionSelection.h"
 #include <iostream>
+
 using namespace std;
 
 
@@ -90,10 +93,24 @@ void ApplicationManager::ExecuteAction(ActionType ActType)
 			pAct = new ActionLoad(this);
 			cout << "load";
 			break;
+		case SELECT:
+			pAct = new ActionSelection(this);
+			break;
+		case DisSelect:
+			pAct = new ActionDisSelection(this);
+
 		
 
 		case EXIT:
 			pUI->ClearDrawingArea();
+			break;
+		case SIM_MODE:
+			ValidateCircuit();
+            break;
+		case DSN_MODE:
+			pUI->setAppMode(DESIGN);
+			pUI->PrintMsg("Design Mode");
+			//to be revised
 			break;
 	}
 	if(pAct)
@@ -131,7 +148,7 @@ Component* ApplicationManager::GetComponentByCordinates(int &x, int &y) {
 	
 	for (int i = 0; i < getCompCount(); i++)
 	{
-		if (CompList[i]->IsInside(x, y, GetUI()) == true)
+		if (CompList[i]->selected(x, y)== true)
 			return CompList[i];
 
 	}
@@ -139,16 +156,67 @@ Component* ApplicationManager::GetComponentByCordinates(int &x, int &y) {
 ////////////////////////////////////////////////////////////////////
 // Validates the circuit before going into simultion mode
 bool ApplicationManager::ValidateCircuit() {
-	return true;
+	Ground* item= nullptr;
+	for (int i = 0; i < CompCount; i++)
+		if (CompList[i] == item) // check the exsistance of the ground 
+		{
+			for (int j = 0; j < CompCount; j++) {
+				if (CompList[j]->term1_conn_count == 1 && CompList[j]->term2_conn_count == 1) // check if the circute is not parallel
+				{
+					for (int m = 0; m < CompCount; m++)
+					{
+						if (CompList[m]->term1_conn_count == 0 || CompList[m]->term2_conn_count == 0) // check if the circute is connected 
+						{
+							return true;
+						}
+					}
+
+				}
+			}
+
+		}
+		else {
+			return FALSE;
+
+		}
+}
+	
+void ApplicationManager::switchON() {
+
+	
+
+	for (int j = 0; j < CompCount; j++) {
+		for (int i = 0; i < CompCount; i++) {
+			if (CompList[i]->getCompType() != SWITCH) {
+				if (CompList[i]->getCompType() == CON) {
+					CompList[i]->Operate();
+				}
+
+			}
+		}
+		for (int i = 0; i < CompCount; i++) {
+			if (CompList[i]->getCompType() != SWITCH) {
+				CompList[i]->Operate();
+			}
+		}
+
+	}
 }
 
 ////////////////////////////////////////////////////////////////////
 void ApplicationManager::ToSimulation() {
+
 	if (!ValidateCircuit()) {
-		// TODO
+		UI* pUI = GetUI();
+		pUI->PrintMsg("Circuit is not valid!");
+
 	}
 	else {
 		this->IsSimulation = true;
+
+		pUI->setAppMode(SIMULATION);
+		switchON();
+		pUI->PrintMsg("Simulation Mode");
 		// Compute all needed voltages and current
 		double current = CalculateCurrent();
 		CalculateVoltages(current);
@@ -156,18 +224,37 @@ void ApplicationManager::ToSimulation() {
 }
 ////////////////////////////////////////////////////////////////////
 // Calculates current passing through the circuit
-double ApplicationManager::CalculateCurrent() {
+double ApplicationManager::CalculateCurrent() //RANA
+{
 	// TODO
-	return 0;
+	double totalRes = 0;
+	double totavoltages = 0;
+	for (int i = 0; i < CompCount; i++)
+	{
+		if (CompList[i]->getCompType() == GROUND)
+			for (int j = 0; j < (CompCount - 1); i++)
+			{
+				totalRes = totalRes + CompList[i]->getResistance();
+				if (CompList[j]->getCompType() == BATTERY)
+					totavoltages = totavoltages + CompList[i]->getSourceVoltage(TERM1);
+			}
+	}
+	double CURRENT = totavoltages/totalRes;
+	 
+	return CURRENT;
 }
 
 // Calculates voltage at each component terminal
-void ApplicationManager::CalculateVoltages(double current) {
-	// TODO
+void ApplicationManager::CalculateVoltages(double current) //rana
+{
+	
+
 }
 
 ////////////////////////////////////////////////////////////////////
 ApplicationManager::~ApplicationManager()
 {
-	// TODO
+	for (int i = 0; i < CompCount; i++)
+		delete CompList[i];
+	delete pUI;
 }

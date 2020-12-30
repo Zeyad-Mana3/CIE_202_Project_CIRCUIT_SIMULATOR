@@ -1,4 +1,5 @@
 #include "Switch.h"
+#include "Component.h"
 
 Switch::Switch(GraphicsInfo* r_GfxInfo) :Component(r_GfxInfo)
 {
@@ -17,7 +18,24 @@ void Switch::Draw(UI* pUI)
 	pUI->DrawSwitch(*m_pGfxInfo, Selected); //update to draw Switch
 
 }
-
+CompType Switch::getCompType()
+{
+	return SWITCH;
+}
+int Switch::GetOutStatus() {
+	return -1;
+}
+ double Switch::getSourceVoltage(TerminalNum Term)
+ {
+	 return 0;
+ }
+ int Switch::GetInputStatus()
+ {
+	 if (HIGH)
+		 return 1;
+	 if (LOW)
+		 return 0;
+ }
 void Switch::Operate()
 {
 

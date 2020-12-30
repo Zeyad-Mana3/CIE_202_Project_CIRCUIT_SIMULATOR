@@ -15,6 +15,21 @@ void Fuse::Draw(UI* pUI)
 	pUI->DrawFuse(*m_pGfxInfo, Selected); //update to Fuse Fuse
 
 }
+double Fuse::getSourceVoltage(TerminalNum Term)
+{
+	return 0;
+}
+int Fuse::GetOutStatus() {
+	return -1;
+}
+CompType Fuse::getCompType()
+{
+	return FUSE;
+}
+int Fuse::GetInputStatus()
+{
+	return -1;
+}
 
 void Fuse::Operate()
 {

@@ -46,6 +46,7 @@ class UI
 		ITM_BUZZER,		//ADDING NEW BUZZER ITEM TO MENU
 		ITM_GROUND,		//ADDING NEW GROUND ITEM TO MENU
 		ITM_CONNECTION, // Adding connection line
+		ITM_MODULE,
 		ITM_EDIT,		// eidt
 		ITM_EXIT,		//Exit item
 		
@@ -57,7 +58,11 @@ class UI
 	{
 		//Note: Items are ordered here as they appear in menu
 		ITM_CIRC_SIM,	//Circuit Simulate menu item
-		//ITM_CIRC_DESIGN,	//CICUIT DESIGN MENU  ITEM
+		ITM_CIRC_DESIGN,
+		ITM_AMETER,
+		ITM_VOLTMETER,
+
+			//CICUIT DESIGN MENU  ITEM
 		//TODO:Add more items names here
 	
 		ITM_SIM_CNT		//no. of simulation menu items ==> This should be the last line in this enum
@@ -91,7 +96,7 @@ public:
 	UI();
 	int getCompWidth() const;	//returns Component width
 	int getCompHeight() const;	//returns Component height
-	
+	void setAppMode(MODE x);
 	
 	// Input Functions  ---------------------------
 	void GetPointClicked(int& x, int& y);
@@ -126,6 +131,7 @@ public:
 	void DrawFuse(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
 	// Draws a Bulb
 	void DrawGround(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
+	void DrawModule(const GraphicsInfo& r_GfxInfo, bool selected = false) const;
 
 	///TODO: Make similar functions for drawing all other components, connections, .. etc
 

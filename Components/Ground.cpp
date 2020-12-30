@@ -16,6 +16,21 @@ void Ground::Draw(UI* pUI)
 	pUI->DrawGround(*m_pGfxInfo, Selected); //update to draw Ground
 
 }
+int Ground::GetOutStatus() {
+	return -1;
+}
+int Ground::GetInputStatus()
+{
+	return -1;
+}
+double Ground::getSourceVoltage(TerminalNum Term)
+{
+	return 0;
+}
+CompType Ground::getCompType()
+{
+	return GROUND;
+}
 
 void Ground::Operate()
 {

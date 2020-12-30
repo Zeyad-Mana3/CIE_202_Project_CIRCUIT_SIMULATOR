@@ -112,7 +112,9 @@
   <ItemGroup>
     <ClCompile Include="ActionAddBuzzer.cpp" />
     <ClCompile Include="ActionAddGround.cpp" />
+    <ClCompile Include="ActionAddModule.cpp" />
     <ClCompile Include="ActionAddSwitch.cpp" />
+    <ClCompile Include="ActionDisSelection.cpp" />
     <ClCompile Include="ActionEditLabel.cpp" />
     <ClCompile Include="ActionLoad.cpp" />
     <ClCompile Include="ActionSave.cpp" />
@@ -168,12 +170,15 @@
     <ClCompile Include="Components\Switch.cpp" />
     <ClCompile Include="Connections\Connection.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Module.cpp" />
     <ClCompile Include="UI\UI.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ActionAddBuzzer.h" />
     <ClInclude Include="ActionAddGround.h" />
+    <ClInclude Include="ActionAddModule.h" />
     <ClInclude Include="ActionAddSwitch.h" />
+    <ClInclude Include="ActionDisSelection.h" />
     <ClInclude Include="ActionEditLabel.h" />
     <ClInclude Include="ActionLoad.h" />
     <ClInclude Include="ActionSave.h" />
@@ -214,6 +219,7 @@
     <ClInclude Include="Components\Switch.h" />
     <ClInclude Include="Connections\Connection.h" />
     <ClInclude Include="Defs.H" />
+    <ClInclude Include="Module.h" />
     <ClInclude Include="UI\UI.h" />
   </ItemGroup>
   <ItemGroup>

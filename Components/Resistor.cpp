@@ -16,6 +16,22 @@ void Resistor::Draw(UI* pUI)
 	pUI->DrawResistor(*m_pGfxInfo, Selected); //update to draw resistor
 
 }
+int Resistor::GetOutStatus() {
+	return -1;
+}
+double Resistor::getSourceVoltage(TerminalNum Term)
+{
+	return 0;
+}
+int Resistor::GetInputStatus()
+{
+	return -1;
+}
+CompType Resistor::getCompType()
+{
+	return RES;
+}
+
 
 void Resistor::Operate()
 {

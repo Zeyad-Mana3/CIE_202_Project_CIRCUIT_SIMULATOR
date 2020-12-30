@@ -11,34 +11,40 @@ class Component
 private:
 	string m_Label;
 protected:
-	//Each component has two ending terminals (term1, term2)
+	
 
 	double term1_volt, term2_volt;	//voltage at terminals 1&2
 	double resistance, sourceVoltage; // internal resistance and voltage jump introduced by source
-
-	//Each terminal is connected to set of connections
-	Connection *term1_conns[MAX_CONNS]; //list of pointers to connections
-	Connection* term2_conns[MAX_CONNS];
-
-	int term1_conn_count=0;	//actual no. of connections to each terminal
-	int term2_conn_count=0;
-
+	
+	
 	
 
 public:
+	//Each terminal is connected to set of connections
+
+	Connection* term1_conns[MAX_CONNS]; //list of pointers to connections
+	Connection* term2_conns[MAX_CONNS];
+
+
+	int term1_conn_count = 0;	//actual no. of connections to each terminal
+	int term2_conn_count = 0;
 	bool Selected;
+	bool selected(int x, int y);
 	GraphicsInfo* m_pGfxInfo;	//The parameters required to draw a component
 	
 	Component(GraphicsInfo *r_GfxInfo);
 	Component();
+	virtual CompType getCompType() = 0;
+
 	bool IsInside(int& x, int& y, UI* pUI);
 	void setLabel(string lebel);
 	//void setTerm1Volt(double v);		//sets the voltage at terminal1
 	//void setTerm2Volt(double v);		//sets the voltage at terminal2
 	//double getTerm1Volt();				//returns the voltage at terminal1
 	//double getTerm2Volt();				//returns the voltage at terminal2
-	//double getResistance();
-	//double getSourceVoltage(TerminalNum Term); // entering from terminal Term. Returns voltage jump/drop for battery, 0 otherwise
+	double getResistance();
+	virtual double getSourceVoltage(TerminalNum Term) = 0; //rana
+														   // entering from terminal Term. Returns voltage jump/drop for battery, 0 otherwise
 	//Connection** getTermConnections(TerminalNum Term);
 
 	//double CalculateTermVoltage(TerminalNum term, double voltAtTerm, double currIntoTerm);	//Calculates the output voltage according to the inputs, sets terminal voltages
@@ -49,8 +55,10 @@ public:
 	int getCompCenterX(UI*); // get horizontal/vertical centers of the component
 	int getCompCenterY(UI*);
 	
-	//virtual int GetOutStatus()=0;	//returns status of output if BULB/BUZZER, return -1
-	//virtual int GetInputStatus()=0;	//returns status of SWITCH, return -1
+	virtual int GetOutStatus()=0; //rana
+								  //returns status of output if BULB/BUZZER, return -1 all -1
+	virtual int GetInputStatus()=0;	// rana
+									//returns status of SWITCH, return -1
 
 	//virtual void setInputStatus(STATUS s)=0;	//set status of SWITCH
 

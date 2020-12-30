@@ -32,6 +32,11 @@ int UI::getCompHeight() const
 	return COMP_HEIGHT;
 }
 
+void UI::setAppMode(MODE x)
+{
+	AppMode = x;
+}
+
 //======================================================================================//
 //								Input Functions 										//
 //======================================================================================//
@@ -107,7 +112,7 @@ ActionType UI::GetUserAction() const
 			case ITM_EXIT:	return EXIT;	
 			case ITM_EDIT:	return EDIT_LABEL;
 			case ITM_CONNECTION: return ADD_CONNECTION;
-			
+			case ITM_MODULE: return ADD_Module;
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar
 			}
 		}
@@ -123,6 +128,21 @@ ActionType UI::GetUserAction() const
 	}
 	else	//Application is in Simulation mode
 	{
+		if (y >= ToolBarHeight && y < (2 * ToolBarHeight)) {
+			int ClickedItemOrder = (x / ToolItemWidth);
+			switch (ClickedItemOrder)
+			{
+			case ITM_CIRC_SIM:
+				break;
+			case ITM_CIRC_DESIGN:
+				return DSN_MODE;
+				break;
+			}
+		}
+		if (y >= 2 * ToolBarHeight && y < height - StatusBarHeight)
+		{
+			return SELECT;	//user want to select/unselect a statement in the flowchart
+		}
 		return SIM_MODE;	//This should be changed after creating the compelete simulation bar 
 	}
 
@@ -197,12 +217,16 @@ void UI::CreateDesignToolBar()
 	MenuItemImages[ITM_FUSE] = "images\\Menu\\Menu_Fuse.jpg";
 	MenuItemImages[ITM_SWITCH] = "images\\Menu\\Menu_Switch.jpg";
 	MenuItemImages[ITM_BUZZER] = "images\\Menu\\Menu_Buzzer.jpg";
-	MenuItemImages[ITM_GROUND] = "images\\Menu\\Menu_Ground.jpg";
+	MenuItemImages[ITM_GROUND] = "images\\Menu\\Menu_Ground.jpg"; 
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\Connection_Line.jpg";
 	MenuItemImages[ITM_EDIT] = "images\\Menu\\Menu_Edit.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\Menu\\Menu_Exit.jpg";
-	
-	
+	MenuItemImages[ITM_MODULE] = "images\\Menu\\Menu_Module.jpg";
+	MenuItemImages[ITM_CIRC_SIM] = "images\\Menu\\Menu_sim.jpg";
+	MenuItemImages[ITM_AMETER] = "images\\Menu\\Menu_Amm.jpg";
+	MenuItemImages[ITM_VOLTMETER] = "images\\Menu\\Menu_volt.jpg";
+
+
 
 	//TODO: Prepare image for each menu item and add it to the list
 
@@ -304,6 +328,17 @@ void UI::DrawGround(const GraphicsInfo& r_GfxInfo, bool selected) const
 
 	//Draw Ground at Gfx_Info (1st corner)
 	pWind->DrawImage(GroundImage, r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, COMP_WIDTH, COMP_HEIGHT);
+}
+
+void UI::DrawModule(const GraphicsInfo& r_GfxInfo, bool selected ) const {
+	string ModuleImage;
+	if (selected)
+		ModuleImage = "Images\\Comp\\Module_HI.jpg";	//use image of highlighted Module
+	else
+		ModuleImage = "Images\\Comp\\Module.jpg";	//use image of the normal Module
+
+	//Draw Module at Gfx_Info (1st corner)
+	pWind->DrawImage(ModuleImage, r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, COMP_WIDTH, COMP_HEIGHT);
 }
 
 

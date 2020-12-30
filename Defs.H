@@ -17,6 +17,7 @@ enum ActionType
 	ADD_BUZZER,           // ADD buzzer
 	ADD_GROUND,			//ADD GROUND
 	ADD_CONNECTION,		//Add Wire Connection
+	ADD_Module,
 
 	ADD_LABEL,			//Add Label to a Component, a Connection
 	EDIT_LABEL,			//Edit Label of a Component, a Connection
@@ -26,9 +27,10 @@ enum ActionType
 	SELECT,		//Select a Component, a Connection
 	DEL,		//Delete a Component, a Connection
 	MOVE,		//Move a Component, a Connection
-
+	DisSelect,
 	SAVE,		//Save the whole Circuit to a file
 	LOAD,		//Load a Circuit from a file
+	
 
 	UNDO,		//Undo the last Action preformed
 	REDO,		//Redo the last Action canceled
@@ -41,11 +43,29 @@ enum ActionType
 	DSN_TOOL,	//A click on an empty place in the design tool bar
 
 };
-
+enum STATUS //Rana
+{
+	LOW,
+	HIGH,
+	NCON	//not connected
+};
 enum  MODE	//Modes of operation
 {
 	DESIGN,
 	SIMULATION
+};
+
+enum CompType
+{
+	RES,
+	FUSE,
+	GROUND,
+	BULB,
+	BATTERY,
+	BUZZER,
+	MODULE,
+	CON,
+	SWITCH,
 };
 
 //Maximum number of connections that can be connected to any output components

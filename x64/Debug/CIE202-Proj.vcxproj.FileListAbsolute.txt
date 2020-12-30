@@ -1,0 +1,2 @@
+C:\Users\SE7EN\Desktop\CIE_202_Project_CIRCUIT_SIMULATOR\x64\Debug\CIE202-Proj.exe
+C:\Users\SE7EN\Desktop\CIE_202_Project_CIRCUIT_SIMULATOR\x64\Debug\CIE202-Proj.pdb

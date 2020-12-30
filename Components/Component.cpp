@@ -17,26 +17,42 @@ Component::Component()
 Component::~Component()
 {}
 
-bool Component::IsInside(int& x, int& y, UI* pUI) {
-	 
-	pUI->GetPointClicked(x, y);
-	 GraphicsInfo *m_pGfxInfo = new GraphicsInfo(2);
+bool Component::selected(int cx, int cy)
+	{
 
-	 int Point1_x = m_pGfxInfo->PointsList[0].x;
-	 int Point1_y = m_pGfxInfo->PointsList[0].y;
-	 int Point2_x = m_pGfxInfo->PointsList[1].x;
-	 int Point2_y = m_pGfxInfo->PointsList[1].y;
-	if (x << Point2_x && x >> Point1_x) {
-		if (y << Point2_y && y >> Point1_y) {
-			return true;
-		}
+	if (cx > m_pGfxInfo->PointsList[0].x && cx < m_pGfxInfo->PointsList[1].x && cy > m_pGfxInfo->PointsList[0].y && cy < m_pGfxInfo->PointsList[1].y)
+	{
+		return (true);
+		Selected = true; 
 	}
-
+		else
+			return(false);
 }
+//bool Component::IsInside(int& x, int& y, UI* pUI) {
+	 
+//	pUI->GetPointClicked(x, y);
+	//GraphicsInfo* m_pGfxInfo = new GraphicsInfo(2);
+
+	 //int Point1_x = m_pGfxInfo->PointsList[0].x;
+	 //int Point1_y = m_pGfxInfo->PointsList[0].y;
+	 //int Point2_x = m_pGfxInfo->PointsList[1].x;
+	 //int Point2_y = m_pGfxInfo->PointsList[1].y;
+	//if (x << Point2_x && x >> Point1_x) {
+		//if (y << Point2_y && y >> Point1_y) {
+			//return true;
+		//}
+	//}
+
+//}
 
 void Component::setLabel(string label)
 {
 	m_Label = label;
+}
+
+double Component::getResistance()
+{
+	return resistance;
 }
 
 int getCompCenterX() {

@@ -48,6 +48,7 @@ void ActionAddConnection::Execute()
 	}
 	Component* comp1 = pManager->GetComponentByCordinates(Cx1, Cy1);
 
+
 	
 	// choose the scound comp
 
@@ -87,14 +88,17 @@ void ActionAddConnection::Execute()
 
 	pGInfo->PointsList[0].y = comp1->m_pGfxInfo->PointsList[1].y;
 
+
 	pGInfo->PointsList[1].x = comp2->m_pGfxInfo->PointsList[0].x;
 	pGInfo->PointsList[1].y = comp2->m_pGfxInfo->PointsList[0].y;
 
 
-	//Connection* con = new Connection(pGInfo, comp1, comp2);
-	//pManager->AddConnection(con);
-	//comp1->addTerm1Connection(con);
-	//comp2->addTerm2Connection(con);
+	Connection* con = new Connection(pGInfo, comp1, comp2);
+	pManager->AddConnection(con);
+	comp1->addTerm1Connection(con);
+	  comp1->term1_conn_count= 1;
+	comp2->addTerm2Connection(con);
+	comp2->term2_conn_count=1;
 
 
 	}
