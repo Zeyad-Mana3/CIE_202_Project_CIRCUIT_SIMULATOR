@@ -36,3 +36,8 @@ void Ground::Operate()
 {
 
 }
+
+CompType Ground::getCompType()
+{
+	return GROUND;
+}

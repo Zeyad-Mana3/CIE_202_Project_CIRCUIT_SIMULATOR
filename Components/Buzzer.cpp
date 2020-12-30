@@ -38,3 +38,8 @@ void Buzzer::Operate()
 {
 
 }
+
+CompType Buzzer::getCompType()
+{
+	return BUZZER;
+}

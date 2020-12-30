@@ -13,5 +13,7 @@ public:
 	double getSourceVoltage(TerminalNum Term);
 	int GetInputStatus();
 	virtual void Operate();
+	CompType getCompType();
+
 };
 

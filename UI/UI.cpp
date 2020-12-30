@@ -111,6 +111,7 @@ ActionType UI::GetUserAction() const
 			case ITM_BUZZER:	return ADD_BUZZER;
 			case ITM_EXIT:	return EXIT;	
 			case ITM_EDIT:	return EDIT_LABEL;
+			case ITM_DEL:	return DEL;
 			case ITM_CONNECTION: return ADD_CONNECTION;
 			case ITM_MODULE: return ADD_Module;
 			default: return DSN_TOOL;	//A click on empty place in desgin toolbar
@@ -220,6 +221,7 @@ void UI::CreateDesignToolBar()
 	MenuItemImages[ITM_GROUND] = "images\\Menu\\Menu_Ground.jpg"; 
 	MenuItemImages[ITM_CONNECTION] = "images\\Menu\\Connection_Line.jpg";
 	MenuItemImages[ITM_EDIT] = "images\\Menu\\Menu_Edit.jpg";
+	MenuItemImages[ITM_DEL] = "images\\Menu\\Menu_Delete.jpg";
 	MenuItemImages[ITM_EXIT] = "images\\Menu\\Menu_Exit.jpg";
 	MenuItemImages[ITM_MODULE] = "images\\Menu\\Menu_Module.jpg";
 	MenuItemImages[ITM_CIRC_SIM] = "images\\Menu\\Menu_sim.jpg";
@@ -357,6 +359,23 @@ void UI::DrawConnection(const GraphicsInfo &r_GfxInfo, bool selected) const
 		pWind->DrawLine(pGInfo->PointsList[0].x, pGInfo->PointsList[0].y, pGInfo->PointsList[1].x, pGInfo->PointsList[1].y);
 	}
 }
+
+
+// EDITED BY ZEYAD
+void UI::DeleteComp(const GraphicsInfo& r_GfxInfo) const
+{
+
+	string WhiteImage = "Images\\Comp\\WHITE.jpg";
+	pWind->DrawImage(WhiteImage, r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, COMP_WIDTH, COMP_HEIGHT);
+
+
+}
+
+void UI::DeleteConn(const GraphicsInfo& r_GfxInfo) {
+	pWind->SetPen(WHITE, 3);
+	pWind->DrawLine(r_GfxInfo.PointsList[0].x, r_GfxInfo.PointsList[0].y, r_GfxInfo.PointsList[1].x, r_GfxInfo.PointsList[1].y);
+}
+
 
 
 UI::~UI()

@@ -63,11 +63,19 @@ enum CompType
 	BULB,
 	BATTERY,
 	BUZZER,
+<<<<<<< HEAD
 	MODULE,
 	CON,
 	SWITCH,
 };
 
+=======
+	CON,
+	SWITCH
+};
+
+
+>>>>>>> 3a525c8a57394bdbcab72bb1a394beb52a739f01
 //Maximum number of connections that can be connected to any output components
 #define MAX_CONNS 20
 

@@ -64,7 +64,7 @@ public:
 
 	void addTerm1Connection(Connection* pConn);
 	void addTerm2Connection(Connection* pConn);
-
+	virtual CompType getCompType() = 0;
 	//TerminalNum whichTerminal(Connection* Conn); // returns the terminal to which a connection is connected
 
 	//Destructor must be virtual

@@ -13,4 +13,6 @@ public:
 	int GetInputStatus();
 	CompType getCompType();
 	virtual void Operate();
+	CompType getCompType();
+
 };

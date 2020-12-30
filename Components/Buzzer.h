@@ -12,6 +12,8 @@ public:
 	int GetOutStatus();
 	int GetInputStatus();
 	virtual void Operate();
+	CompType getCompType();
+
 };
 
 

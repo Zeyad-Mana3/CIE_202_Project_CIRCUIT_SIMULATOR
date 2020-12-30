@@ -37,3 +37,8 @@ void Resistor::Operate()
 {
 
 }
+
+CompType Resistor::getCompType()
+{
+	return RES;
+}

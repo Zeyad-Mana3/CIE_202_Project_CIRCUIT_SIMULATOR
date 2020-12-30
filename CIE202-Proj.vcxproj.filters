@@ -187,9 +187,13 @@
     <ClCompile Include="ActionSave.cpp">
       <Filter>Actions</Filter>
     </ClCompile>
+<<<<<<< HEAD
     <ClCompile Include="Module.cpp" />
     <ClCompile Include="ActionDisSelection.cpp" />
     <ClCompile Include="ActionAddModule.cpp" />
+=======
+    <ClCompile Include="ActionDelete.cpp" />
+>>>>>>> 3a525c8a57394bdbcab72bb1a394beb52a739f01
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Actions\Action.h">
@@ -312,9 +316,13 @@
     <ClInclude Include="ActionSave.h">
       <Filter>Actions</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="Module.h" />
     <ClInclude Include="ActionDisSelection.h" />
     <ClInclude Include="ActionAddModule.h" />
+=======
+    <ClInclude Include="ActionDelete.h" />
+>>>>>>> 3a525c8a57394bdbcab72bb1a394beb52a739f01
   </ItemGroup>
   <ItemGroup>
     <Text Include="CMUgraphicsLib\Manual.txt">
